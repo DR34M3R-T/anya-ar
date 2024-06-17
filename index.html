@@ -22,10 +22,10 @@
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity id="mindar-container" mindar-image-target="targetIndex: 0">
-      <a-entity sound="src: #anya_voice"></a-entity>
       <!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
-      <a-gltf-model id="a-anya" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48" src="#anya"></a-gltf-model>
-      <a-gltf-model id="a-snow" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48" src="#snow"></a-gltf-model>
+      <a-entity sound="src: #anya_voice"></a-entity>
+      <a-entity id="a-anya" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48" gltf-model="#anya"></a-entity>
+      <a-entity id="a-snow" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48" gltf-model="#snow"></a-entity>
     </a-entity>
   </a-scene>
 </body>
