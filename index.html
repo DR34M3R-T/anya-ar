@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <a-scene mindar-image="filterMinCF:0.01; filterBeta: 10; imageTargetSrc: assets/anya.mind;" color-space="sRGB"
+  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 10; imageTargetSrc: assets/anya.mind;" color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
@@ -21,8 +21,8 @@
 
     <a-entity mindar-image-target="targetIndex: 0">
       <!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
-      <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="1 1 1" src="#anya" animation-mixer>
-      <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="1 1 1" src="#snow" animation-mixer>
+      <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1 1 1" src="#anya" animation-mixer>
+      <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#snow" animation-mixer>
     </a-entity>
   </a-scene>
 </body>
