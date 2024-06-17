@@ -1,3 +1,4 @@
+found = false
 document.addEventListener("DOMContentLoaded", function () {
     const sceneEl = document.querySelector('a-scene');
     let arSystem;
@@ -15,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     // detect target found
     Target.addEventListener("targetFound", event => {
+        if (found) return;
+        found = true;
         console.log("target found");
         const a_anya = document.getElementById('a-anya');
         const a_snow = document.getElementById('a-snow');
