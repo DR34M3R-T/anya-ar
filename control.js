@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         a_anya.setAttribute('animation-mixer', ani_data);
         a_snow.setAttribute('animation-mixer', ani_data);
-        var sound_entity = document.querySelector('[sound]');
-        sound_entity.components.sound.playSound();
+        var sound = document.getElementById('anyaVoice');
+        sound.play();
     });
     // detect target lost
     Target.addEventListener("targetLost", event => {
