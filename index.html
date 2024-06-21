@@ -2,6 +2,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -10,7 +11,22 @@
 </head>
 
 <body>
-  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 100; imageTargetSrc: assets/anya.mind;" color-space="sRGB"
+
+  <div id="cover" class="start-img hidden">
+    <img src="assets/iPhone-ui-dgk91dc647.png" style="display: block;">
+  </div>
+  <div id="scanning" class="scan-img hidden">
+    <img src="assets/QR_A_ネタバレ防止 (1)-v41lj3cbi3.png" style="display: none;">
+  </div>
+  <div id="startButton" class="start-btn hidden">
+    <img src="assets/startButton-i91ci7ibai.png" style="display: block;">
+  </div>
+  <div id="repeatButton" class="repeat-btn hidden">
+    <img src="assets/Group 1000003175-23k1e2i641.png" style="display: block;">
+  </div>
+  <div id="whiteOut"></div>
+
+  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 100; imageTargetSrc: assets/anya.mind; " color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>

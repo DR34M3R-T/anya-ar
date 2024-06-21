@@ -1,6 +1,75 @@
 found = false;
-document.addEventListener("DOMContentLoaded", function () {
+function dbg() {
+    console.log("target found");
+    if (found) return;
+    found = true;
+    console.log("first found, playing.");
 
+    // play sound
+    var sound = document.getElementById('anyaVoice');
+    sound.play();
+
+    // play animation
+    const a_anya = document.getElementById('a-anya');
+    const a_snow = document.getElementById('a-snow');
+    const ani_data = {
+        loop: "once",
+        clampWhenFinished: true
+    };
+    a_anya.setAttribute('animation-mixer', ani_data);
+    a_snow.setAttribute('animation-mixer', ani_data);
+
+    // effect timeout
+    setTimeout((function () {
+        o({
+            x: 0,
+            y: 2.06574,
+            z: -.139365
+        }, {
+            x: .5,
+            y: .5,
+            z: .5
+        }, .15)
+    }
+    ), 12550),
+        setTimeout((function () {
+            o({
+                x: 0,
+                y: 2.42392,
+                z: -.052186
+            }, {
+                x: 1,
+                y: 1,
+                z: 1
+            }, .45)
+        }
+        ), 12960),
+        setTimeout((function () {
+            o({
+                x: .733442,
+                y: 1.70214,
+                z: .078421
+            }, {
+                x: 1,
+                y: 1,
+                z: 1
+            }, .45)
+        }
+        ), 13340),
+        setTimeout((function () {
+            o({
+                x: -.781238,
+                y: 1.76574,
+                z: -.139365
+            }, {
+                x: 1,
+                y: 1,
+                z: 1
+            }, .45)
+        }
+        ), 13780);
+}
+document.addEventListener("DOMContentLoaded", function () {
     // orig effect player code from dist_cb55cecae636fcf3b460c013a34f03a9a60edba3-a1263fae866c7b95c8ebc1fc56f20f7a_bundle.js
     o = function (n, o, i) {
         var r = n
@@ -19,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 rotationAxis: "x",
                 direction: "-1",
                 duration: "0.3",
-                rate: "0",
                 particleCount: "25",
                 maxParticleCount: "25",
                 maxAge: "1.5",
@@ -41,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 rotationAxis: "x",
                 direction: "-1",
                 duration: "0.3",
-                rate: "0",
                 particleCount: "25",
                 maxParticleCount: "25",
                 maxAge: "1.5",
@@ -63,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 rotationAxis: "x",
                 direction: "-1",
                 duration: "0.3",
-                rate: "0",
                 particleCount: "25",
                 maxParticleCount: "25",
                 maxAge: "1.5",
@@ -85,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 rotationAxis: "x",
                 direction: "-1",
                 duration: "0.3",
-                rate: "0",
                 particleCount: "25",
                 maxParticleCount: "25",
                 maxAge: "1.5",
@@ -107,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 rotationAxis: "x",
                 direction: "-1",
                 duration: "0.3",
-                rate: "0",
                 particleCount: "25",
                 maxParticleCount: "25",
                 maxAge: "1.5",
@@ -121,19 +185,26 @@ document.addEventListener("DOMContentLoaded", function () {
             a.appendChild(u)
     }
 
+    const cover = document.querySelector('#cover');
+    const startBtn = document.querySelector('#startButton');
+    const repeatBtn = document.querySelector('#repeatButton');
+
     const sceneEl = document.querySelector('a-scene');
     let arSystem;
-    sceneEl.addEventListener('loaded', function () {
+    sceneEl.addEventListener('loaded', () => {
         arSystem = sceneEl.systems["mindar-image-system"];
     });
     const Target = document.querySelector('#mindar-container');
     // arReady event triggered when ready
     sceneEl.addEventListener("arReady", (event) => {
-        console.log("MindAR is ready")
+        arSystem.pause();
+        startBtn.classList.remove('hidden');
+        cover.classList.remove('hidden');
+        console.log("MindAR is ready");
     });
     // arError event triggered when something went wrong. Mostly browser compatbility issue
     sceneEl.addEventListener("arError", (event) => {
-        console.log("MindAR failed to start")
+        console.log("MindAR failed to start");
     });
     // detect target found
     Target.addEventListener("targetFound", event => {
@@ -157,6 +228,14 @@ document.addEventListener("DOMContentLoaded", function () {
         a_snow.setAttribute('animation-mixer', ani_data);
 
         // effect timeout
+        setTimeout((function() {
+            document.getElementById("whiteOut").style.opacity = 1
+        }
+        ), 10500),
+        setTimeout((function() {
+            document.getElementById("whiteOut").style.opacity = 0
+        }
+        ), 12e3),
         setTimeout((function() {
             o({
                 x: 0,
@@ -205,9 +284,23 @@ document.addEventListener("DOMContentLoaded", function () {
             }, .45)
         }
         ), 13780);
+        setTimeout((function() {
+            arSystem.pause(keepVideo=true);
+            repeatBtn.classList.remove('hidden');
+        }
+        ), 25000);
     });
     // detect target lost
     Target.addEventListener("targetLost", event => {
         console.log("target lost");
     });
+
+    startBtn.addEventListener("click", (event) => {
+        arSystem.unpause();
+        startBtn.classList.add('hidden');
+        cover.classList.add('hidden');
+    });
+    repeatBtn.addEventListener("click", (event)=>{
+        location.reload();
+    })
 });
