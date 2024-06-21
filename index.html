@@ -11,22 +11,30 @@
 </head>
 
 <body>
-
+  <div id="loading" class="loading-img">
+    <div id="container">
+      <div class="text"> Loading...<br><br></div>
+      <a href="https://github.com/hiukim/mind-ar-js">
+        <img src="assets/mindar-logo.png" class="blink">
+      </a>
+      <div class="text"> Powered by <a href="https://github.com/hiukim/mind-ar-js">MindAR</a></div>
+    </div>
+  </div>
   <div id="cover" class="start-img hidden">
-    <img src="assets/iPhone-ui-dgk91dc647.png" style="display: block;">
+    <img src="assets/iPhone-ui-dgk91dc647.png">
   </div>
   <div id="scanning" class="scan-img hidden">
-    <img src="assets/QR_A_ネタバレ防止 (1)-v41lj3cbi3.png" style="display: none;">
+    <img src="assets/QR_A_ネタバレ防止 (1)-v41lj3cbi3.png">
   </div>
   <div id="startButton" class="start-btn hidden">
-    <img src="assets/startButton-i91ci7ibai.png" style="display: block;">
+    <img src="assets/startButton-i91ci7ibai.png">
   </div>
   <div id="repeatButton" class="repeat-btn hidden">
-    <img src="assets/Group 1000003175-23k1e2i641.png" style="display: block;">
+    <img src="assets/Group 1000003175-23k1e2i641.png">
   </div>
   <div id="whiteOut"></div>
 
-  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 100; imageTargetSrc: assets/anya.mind; " color-space="sRGB"
+  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 100; imageTargetSrc: assets/anya.mind; uiScanning: #scanning" color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>

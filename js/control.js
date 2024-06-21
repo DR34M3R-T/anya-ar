@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Particle size:", i),
             a.appendChild(u)
     }
-
+    const loading = document.querySelector('#loading');
     const cover = document.querySelector('#cover');
     const startBtn = document.querySelector('#startButton');
     const repeatBtn = document.querySelector('#repeatButton');
@@ -200,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
         arSystem.pause();
         startBtn.classList.remove('hidden');
         cover.classList.remove('hidden');
+        loading.classList.add('hidden');
         console.log("MindAR is ready");
     });
     // arError event triggered when something went wrong. Mostly browser compatbility issue
