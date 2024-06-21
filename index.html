@@ -32,10 +32,14 @@
   <div id="repeatButton" class="repeat-btn hidden">
     <img src="assets/Group 1000003175-23k1e2i641.png">
   </div>
+  <div id="links" class="links hidden">
+    <div><a href="https://dr34m3r-t.github.io/anya-ar/model-view/">模型查看</a></div>
+    <div><a href="https://github.com/DR34M3R-T/anya-ar">源码查看</a></div>
+  </div>
   <div id="whiteOut"></div>
 
-  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 100; imageTargetSrc: assets/anya.mind; uiScanning: #scanning" color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+  <a-scene mindar-image="filterMinCF:0.001; filterBeta: 100; imageTargetSrc: assets/anya.mind; uiScanning: #scanning" 
+    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
       <!-- <img id="card" src="assets/anya-front.png" /> -->
@@ -52,7 +56,7 @@
       <a-entity id="a-anya" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48" gltf-model="#anya"></a-entity>
       <a-entity id="a-snow" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48" gltf-model="#snow"></a-entity>
       <a-entity id="effect" rotation="90 0 0 " position="0 0 0" scale="0.48 0.48 0.48">
-        <a-sphere position="0 2.06 -0.13" radius="0.1" color="#EF2D5E"></a-sphere>
+        <!-- <a-sphere position="0 2.06 -0.13" radius="0.1" color="#EF2D5E"></a-sphere> -->
       </a-entity>
     </a-entity>
   </a-scene>

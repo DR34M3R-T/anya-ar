@@ -1,4 +1,5 @@
 found = false;
+start = false;
 function dbg() {
     console.log("target found");
     if (found) return;
@@ -188,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cover = document.querySelector('#cover');
     const startBtn = document.querySelector('#startButton');
     const repeatBtn = document.querySelector('#repeatButton');
+    const links = document.querySelector('#links');
 
     const sceneEl = document.querySelector('a-scene');
     let arSystem;
@@ -210,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // detect target found
     Target.addEventListener("targetFound", event => {
         console.log("target found");
+        if (!start) return;
         if (found) return;
         found = true;
         console.log("first found, playing.");
@@ -288,8 +291,9 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout((function() {
             arSystem.pause(keepVideo=true);
             repeatBtn.classList.remove('hidden');
+            links.classList.remove('hidden');
         }
-        ), 25000);
+        ), 20000);
     });
     // detect target lost
     Target.addEventListener("targetLost", event => {
@@ -300,6 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
         arSystem.unpause();
         startBtn.classList.add('hidden');
         cover.classList.add('hidden');
+        start=true;
     });
     repeatBtn.addEventListener("click", (event)=>{
         location.reload();

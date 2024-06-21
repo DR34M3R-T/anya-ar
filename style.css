@@ -1,14 +1,6 @@
-#whiteOut {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s ease;
+a{
+    text-decoration: none;
+    color: white;
 }
 
 @keyframes blink {
@@ -16,24 +8,27 @@
       opacity: 1;
     }
     5% {
-      opacity: 1;
+        opacity: 1;
     }
     45% {
-      opacity: 0;
+        opacity: 0;
     }
     55% {
-      opacity: 0;
+        opacity: 0;
     }
     95% {
-      opacity: 1;
+        opacity: 1;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
 }
-
 .blink {
     animation: blink 1s infinite;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .loading-img{
@@ -49,7 +44,6 @@
     width: 162.6px;
     height: 117.6px;
 }
-
 .loading-img #container {
     position: absolute;
     top: 50%;
@@ -65,9 +59,41 @@
 .loading-img .text{
     margin: 10px 0px;
 }
-.loading-img a{
-    text-decoration: none;
-    color: white;
+
+.start-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+}
+.start-img img {
+    box-sizing: border-box;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    pointer-events: none;
+
+}
+.start-btn {
+    position: fixed;
+    top: 61%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 286.92px;
+    height: 52px;
+    z-index: 601;
+}
+.start-btn img {
+    box-sizing: border-box;
+    /* object-fit: cover; */
+    width: 286.92px;
+    height: 52px;
+    /* width: 100%; */
+    /* margin: 0 auto; */
 }
 
 .scan-img {
@@ -79,7 +105,6 @@
     z-index: 1;
     pointer-events: none;
 }
-
 .scan-img img {
     box-sizing: border-box;
     object-fit: cover;
@@ -87,67 +112,6 @@
     height: 100%;
     pointer-events: none;
 
-}
-
-.start-img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    pointer-events: none;
-}
-.hidden {
-    display: none;
-}
-
-.start-img img {
-    box-sizing: border-box;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    object-position: center;
-    pointer-events: none;
-
-}
-
-.end-img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    pointer-events: none;
-}
-
-.end-img img {
-    box-sizing: border-box;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-
-}
-
-.start-btn {
-    position: fixed;
-    top: 61%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 286.92px;
-    height: 52px;
-    z-index: 601;
-}
-
-.start-btn img {
-    box-sizing: border-box;
-    /* object-fit: cover; */
-    width: 286.92px;
-    height: 52px;
-    /* width: 100%; */
-    /* margin: 0 auto; */
 }
 
 .repeat-btn {
@@ -159,7 +123,6 @@
     height: 52px;
     z-index: 601;
 }
-
 .repeat-btn img {
     box-sizing: border-box;
     /* object-fit: cover; */
@@ -168,69 +131,22 @@
     /* width: 100%; */
     /* margin: 0 auto; */
 }
-
-.link-btn {
+.links {
     position: fixed;
-    top: calc(60% + 80px);
+    bottom: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 288px;
-    height: 60px;
-    z-index: 100;
+    width: 200px;
+    height: 40px;
+    z-index: 601;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.link-btn img {
-    box-sizing: border-box;
-    /* object-fit: cover; */
-    width: 288px;
-    height: auto;
-}
-
-.full-btn {
-    width: 48px;
-    height: 48px;
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    z-index: 101;
-    /* 必要に応じてz-indexを調整 */
-}
-
-.full-btn img {
-    box-sizing: border-box;
-    /* object-fit: cover; */
-    width: 48px;
-    height: 48px;
-}
-
-
-.small-btn {
-    width: 48px;
-    height: 48px;
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    z-index: 101;
-    /* 必要に応じてz-indexを調整 */
-}
-
-.small-btn img {
-    box-sizing: border-box;
-    /* object-fit: cover; */
-    width: 48px;
-    height: 48px;
-}
-
-
-#requestingCameraPermissions {
-    color: black !important;
-    background-color: #000000 !important;
-}
-
-#requestingCameraIcon {
-    /* これで画像が白から黒に変わります */
-    filter: invert(1) !important;
-}
 
 #whiteOut {
     position: fixed;
@@ -243,25 +159,4 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 1s ease;
-}
-
-#orientationWarning {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 400px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px;
-    color: black;
-    font-size: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    /* 必要に応じて調整 */
-    transition: all 0.3s ease-in-out;
 }
